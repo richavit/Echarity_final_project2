@@ -1,0 +1,42 @@
+{% extends "dashboard.html"%}
+{% block content %}
+                
+                <h1>Donate New Item</h1>
+                <form action="{% url "list" %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <p>{{ form.non_field_errors }}</p>
+                        
+                         <p>{{ form.user.label_tag }} </p>      
+                                {{ form.user }}               
+                         <p>{{ form.title.label_tag }} </p>      
+                                {{ form.title }}       
+                        
+                        <p>{{ form.docfile.label_tag }} </p>
+                        <p>
+                                {{ form.docfile.errors }}
+                                {{ form.docfile }}
+                          <p>{{ form.description.label_tag }} </p>      
+                                {{ form.description }}
+                          <p>{{ form.active.label_tag }} </p>      
+                                {{ form.active }}
+                                
+                           <p>{{ form.quantity.label_tag }} </p>      
+                                {{ form.quantity }}
+                           <p>{{ form.zip_Code.label_tag }} </p>      
+                                {{ form.zip_Code }}
+                           <p>{{ form.address.label_tag }} </p>      
+                                {{ form.address }}
+                           <p>{{ form.date_created.label_tag }} </p>      
+                                {{ form.date_created }}
+                           <p>{{ form.date_Update.label_tag }} </p>      
+                                {{ form.date_Update }}               
+                                
+                           <p>{{ form.expire_date.label_tag }} </p>      
+                                {{ form.expire_date }}               
+                           
+                                          
+                        </p>
+                        <p><input type="submit" value="save" /></p>
+                </form>
+
+       {% endblock %}

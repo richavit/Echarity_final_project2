@@ -11,7 +11,7 @@
          <h2 style="color:brown;">{{ post.title }}</h2>
          
         <div>
-			
+			<u><h1><lable>Image</lable></h1></u>
 			{% if post %}
                         <ul>
                         
@@ -23,15 +23,14 @@
                 {% else %}
                         <p>No documents.</p>
                 {% endif %}
-			
-			
-              
+			<br>
+              <u><h1>About the Product</h1><br></u>
               <p class='lead'>{{ post.description }}</p>
         </div>        
           
 
     </div>
-<a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">EDIT YOUR ITEMS</a>
+
     <!-- Product Sidebar --> 
     <div class='col-sm-4'>
         
@@ -43,22 +42,20 @@
             </select>
         {% endif %}
         <br/>
-        <u><h1><lable>Remains:</lable></h1></u><br/>  
- {{ post.quantity }}<br/><br/>
         <u><h1><lable>ADD ON:</lable></h1></u><br/>
           {{ post.date_created }}
-        
-        <u><h1><lable>Last Update:</lable></h1></u><br/> 
-{{post.date_Update}}<br>
-<u><h1><lable>Expire On:</lable></h1></u><br/> 
+        <u><h1><lable>Expire On:</lable></h1></u><br/> 
        {{post.expire_date}}<br> 
 
-
+        <br/> 
+        <u><h1><lable>Last Update:</lable></h1></u><br/> 
+{{post.date_Update}}<br>
+ 
+       
     </div>
        
 </div>
 
-        <br/>
         <hr/>
     </div>
 </div>

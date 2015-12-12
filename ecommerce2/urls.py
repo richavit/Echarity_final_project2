@@ -4,6 +4,9 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from dashing.utils import router
 from registration.backends.default.views import RegistrationView
+from ajaxuploader.views import AjaxFileUploader
+
+uploader = AjaxFileUploader()
 
 
 urlpatterns = [
@@ -11,6 +14,9 @@ urlpatterns = [
     url(r'^messages/', include('django_messages.urls')),
     #url(r'^$', 'newsletter.views.home', name='home'),
     url(r'^contact/$', 'newsletter.views.contact', name='contact'),
+    url(r'^history/$', 'products.views.post_history', name='post_history'),
+    url(r'^history/add/(?P<pk>[0-9]+)/$', 'products.views.post_detail_history', name='post_detail_history'),
+    
     url(r'^about/$', 'ecommerce2.views.about', name='about'),
     url(r'^blank/$', 'ecommerce2.views.blank', name='blank'),  
     url(r'^faq/$', 'ecommerce2.views.faq', name='faq'),

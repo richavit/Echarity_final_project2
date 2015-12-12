@@ -10,14 +10,25 @@
     <div class='col-sm-7'>
          <h2>{{ object.title }}</h2>
  <div>
-         {% if object.productimage_set.count > 0 %}
-          {% for img in object.productimage_set.all %}
+	 
+	 {% if object %}
+                        <ul>
+                        
+                                
+                                <img src="{{ object.docfile.url }}" alt="{{ object.docfile.name }}">
+                                </a></li>
+                        
+                        </ul>
+                {% else %}
+                        <p><img id="blah" src="{% static 'img/snap/0noitem.gif' %}"   width="190px" height="150px" alt="No Image of item"/></p>
+                {% endif %}
+	 
+	 
+	 
+	 
+	 
 
-              <img class = 'img-responsive' src="{{ img.image.url }}" />
-              {% endfor %}
-{% else %}
-<img id="blah" src="{% static 'img/snap/0noitem.gif' %}"   width="190px" height="150px" alt="No Image of item"/>
-  {% endif %}           
+  
         </div>        
           
         <U> <p class='lead'>{{ object.description }}</p></u>

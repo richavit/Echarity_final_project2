@@ -145,18 +145,18 @@ background:LightSteelBlue;
 <div class="container"  style="background-color:LightSteelBlue ">
     <p><h3><b><u>Latest Requested items</u></b></h3></p><br>
 <div class="row">
-{% for product in products %}
+
 		<div class='col-sm-3'>
 			<div class="thumbnail">
 <a href='{{ product.get_absolute_url }}'> <h1>{{ product.title }}</h1></a>
-	{% if product.productimage_set.count > 0 %}
+	
             {% if product.title %}
-	{% for img in product.productimage_set.all %}
+	
 	<a href='{{ product.get_absolute_url }}'><img class = 'img-responsive'src="{{ img.image.url }}" /></a>
 
 							<!-- <img class='img-responsive' src="{{ MEDIA_URL }}{{ item.image }}" /> -->
-{% endfor %}
-{% endif %}
+
+
 {% endif %}
 <div class="caption">
 <p><u>{{ product.description|truncatewords:15}}</u></p>
@@ -169,7 +169,7 @@ background:LightSteelBlue;
 		</div>
 
 {% cycle "" "" "" "</div><br/><hr/><div class='row'><p><h3><b><u>Latest Donated Items</u></b></h3></p></br>" %}
-{% endfor %}
+
 
 </div></div></div>
 

@@ -2,33 +2,21 @@
 
 {% block content %}
 
-        <a class="btn btn-default" href="{% url 'post_edit_list' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
 <div class="row">
 
 
     <div class='col-sm-8'>
 		<u><h1><lable>Title</lable></h1></u>
          <h2 style="color:brown;">{{ post.title }}</h2>
-         
+         {% if post.productimage_set.count > 0 %}
         <div>
-			
-			{% if post %}
-                        <ul>
-                        
-                                
-                                <img src="{{ post.docfile.url }}" alt="{{ post.docfile.name }}">
-                                </a></li>
-                        
-                        </ul>
-                {% else %}
-                        <p>No documents.</p>
-                {% endif %}
-			
-			
-              
+              {% for img in object.productimage_set.all %}
+              <img class = 'img-responsive'src="{{ img.image.url }}" />
+              {% endfor %}
               <p class='lead'>{{ post.description }}</p>
         </div>        
-          
+          {% endif %}
 
     </div>
 <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">EDIT YOUR ITEMS</a>
@@ -43,20 +31,18 @@
             </select>
         {% endif %}
         <br/>
-        <u><h1><lable>Remains:</lable></h1></u><br/>  
- {{ post.quantity }}<br/><br/>
         <u><h1><lable>ADD ON:</lable></h1></u><br/>
           {{ post.date_created }}
-        
-        <u><h1><lable>Last Update:</lable></h1></u><br/> 
-{{post.date_Update}}<br>
-<u><h1><lable>Expire On:</lable></h1></u><br/> 
-       {{post.expire_date}}<br> 
-
-
+        <u><h1><lable>Remains:</lable></h1></u><br/>  
+ {{ post.quantity }}<br/><br/>
+<button type="button"  class="btn btn-info btn-lg" >Excahnge/Donate</button><br>
     </div>
        
 </div>
+<u><h1><lable>Last Update:</lable></h1></u><br/> 
+{{post.date_Update}}<br>
+<u><h1><lable>Expire On:</lable></h1></u><br/> 
+       {{post.expire_date}}<br> 
 
         <br/>
         <hr/>

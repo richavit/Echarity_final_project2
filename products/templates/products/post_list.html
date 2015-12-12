@@ -1,0 +1,32 @@
+{% extends "dashboard.html" %}
+
+{% block content %}
+   
+    {% for Product in posts %}
+        <div class="post">
+           
+			<h3><label> Product_Image</label></h3>
+			{% if Product %}
+                        <ul>
+                        
+                                
+                                <img src="{{ Product.docfile.url }}" alt="{{ Product.docfile.name }}">
+                                </a></li>
+                        
+                        </ul>
+                {% else %}
+                        <p>No documents.</p>
+                {% endif %}
+			
+            
+			
+			<h3><label> Title: </label></h3>
+			
+			<h2><a href="{% url 'post_detail_history' pk=Product.pk %}"> {{ Product.title }}</a></h2>
+			
+			<h3><label> Date_created: </label></h3>
+            <h2><a href="#"> {{ Product.date_created }}</a></h2>
+            
+        </div>
+    {% endfor %}
+{% endblock content %}
