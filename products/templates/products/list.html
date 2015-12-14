@@ -1,42 +1,71 @@
 {% extends "dashboard.html"%}
 {% block content %}
-                
-                <h1>Donate New Item</h1>
+                <div class="margin" style="margin-left:180px"> 
+                    <u><h3 style="color:black; padding-left:110px">Donate New Item</h3></u>
                 <form action="{% url "list" %}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
-                        <p>{{ form.non_field_errors }}</p>
+                        <br>
+                        <div class="row">
+                        <div class="margin" style="margin-left:20px">                                               
+                       <div class="col-md-3"><label for="username" class="error">Title:</label></div>
+                             <div class="col-md-3">{{ form.title }}</div>
+                       </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                        <div class="margin" style="margin-left:20px">                                               
+                             <div class="col-md-3"><label for="username" class="error">Image:</label></div>
+                             <div class="col-md-3">{{ form.docfile }}</div>
+                       </div> 
+                       </div>
+                       <br>
+                       <div class="row">
+                       <div class="margin" style="margin-left:20px">                                               
+                             <div class="col-md-3"><label for="username" class="error">Active:</label></div>
+                             <div class="col-md-3">{{ form.active }}</div>
+                       </div> 
+                       </div>
+                       <br>
+                       <div class="row">
+                       <div class="margin" style="margin-left:20px">                                               
+                             <div class="col-md-3"><label for="username" class="error">Description:</label></div>
+                             <div class="col-md-3">{{ form.description }}</div>
+                       </div> 
+                       </div>
+                       <br>
+                       <div class="row">
+                       <div class="margin" style="margin-left:20px">                                               
+                             <div class="col-md-3"><label for="username" class="error">Quantity:</label></div>
+                             <div class="col-md-3">{{ form.quantity }}</div>
+                       </div> 
+                       </div>
+                       <br>
+                       <div class="row">
+                       <div class="margin" style="margin-left:20px">                                               
+                             <div class="col-md-3"><label for="username" class="error">Zip_Code:</label></div>
+                             <div class="col-md-3">{{ form.zip_Code }}</div>
+                       </div>  
+                       </div> 
+                       <br>
+                       <div class="row">
+                         <div class="margin" style="margin-left:20px">                                               
+                             <div class="col-md-3"><label for="username" class="error">Address:</label></div>
+                             <div class="col-md-3">{{ form.address }}</div>
+                       </div> 
+                       </div>
+                       <br>
+                       <div class="row">
+                       <div class="margin" style="margin-left:20px">                                               
+                             <div class="col-md-3"><label for="username" class="error">Expire_date:</label></div>
+                             <div class="col-md-3">{{ form.expire_date }}</div>
+                       </div> 
+                       </div>
+                       <br>
                         
-                         <p>{{ form.user.label_tag }} </p>      
-                                {{ form.user }}               
-                         <p>{{ form.title.label_tag }} </p>      
-                                {{ form.title }}       
-                        
-                        <p>{{ form.docfile.label_tag }} </p>
-                        <p>
-                                {{ form.docfile.errors }}
-                                {{ form.docfile }}
-                          <p>{{ form.description.label_tag }} </p>      
-                                {{ form.description }}
-                          <p>{{ form.active.label_tag }} </p>      
-                                {{ form.active }}
-                                
-                           <p>{{ form.quantity.label_tag }} </p>      
-                                {{ form.quantity }}
-                           <p>{{ form.zip_Code.label_tag }} </p>      
-                                {{ form.zip_Code }}
-                           <p>{{ form.address.label_tag }} </p>      
-                                {{ form.address }}
-                           <p>{{ form.date_created.label_tag }} </p>      
-                                {{ form.date_created }}
-                           <p>{{ form.date_Update.label_tag }} </p>      
-                                {{ form.date_Update }}               
-                                
-                           <p>{{ form.expire_date.label_tag }} </p>      
-                                {{ form.expire_date }}               
-                           
-                                          
-                        </p>
-                        <p><input type="submit" value="save" /></p>
+                       <div class="margin" style="margin-left:120px">
+                        <button type="submit" class="save btn btn-success" style="height:30px ; width:90px; margin-left: 50px" >Save</button>
+                        </div>
                 </form>
+                </div>
 
        {% endblock %}

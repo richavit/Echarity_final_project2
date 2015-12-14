@@ -2,14 +2,15 @@
 
 {% block content %}
    
-    {% for Product in posts %}
+    
+	    <div class="row">
         <div class="post">
-           
-			<h3><label> Product_Image</label></h3>
+		
+           <div class="col-md-4">
+			<h4><label> Product_Image</label></h4>
+			{% for Product in posts %}
 			{% if Product %}
-                        <ul>
-                        
-                                
+                        <ul>                               
                                 <img src="{{ Product.docfile.url }}" alt="{{ Product.docfile.name }}">
                                 </a></li>
                         
@@ -17,16 +18,25 @@
                 {% else %}
                         <p>No documents.</p>
                 {% endif %}
-			
+                {% endfor %}
+			</div>
             
-			
-			<h3><label> Title: </label></h3>
+			<div class="col-md-4">
+			<h4><label> Title: </label></h4>
+			<br><br>
+			{% for Product in posts %}
 			
 			<h2><a href="{% url 'post_detail_history' pk=Product.pk %}"> {{ Product.title }}</a></h2>
-			
-			<h3><label> Date_created: </label></h3>
-            <h2><a href="#"> {{ Product.date_created }}</a></h2>
-            
-        </div>
-    {% endfor %}
+			{% endfor %}
+			</div><br><br><br>
+			<div class="col-md-4">
+			<h4><label> Date_created: </label></h4><br>
+			{% for Product in posts %}<br><br><br>
+            <h4> {{ Product.date_created }} </h4>
+            {% endfor %}
+			</div>
+            </div>
+			</div>
+		
+    
 {% endblock content %}

@@ -50,6 +50,7 @@ class Product(models.Model):
     user = models.ForeignKey(User)
     title  = models.CharField(max_length=120)
     docfile = models.FileField(upload_to='documents/%Y/%m/%d')
+    #description = models.CharField(max_length=120)
     description = models.CharField(default=False, max_length=160)
     active = models.BooleanField(default=True)
     objects = ProductManager()
@@ -58,7 +59,7 @@ class Product(models.Model):
     zip_Code = models.CharField(blank = True, max_length=6)
     address = models.CharField(default=False, max_length=60)
     date_created = models.DateTimeField(default=timezone.now)
-    date_Update = models.DateTimeField(blank=True, null=True)
+    date_Update = models.DateTimeField(default=timezone.now)
     expire_date = models.DateTimeField(blank=True, null=True)
     #user = models.ForeignKey(User)
     #title = models.ForeignKey(Product)
@@ -69,7 +70,7 @@ class Product(models.Model):
         ordering = ("docfile",)
 
     def __unicode__(self):
-        return self.image.path
+        return self.docfile.path
 
 
 

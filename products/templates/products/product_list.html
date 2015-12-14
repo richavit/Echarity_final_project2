@@ -91,7 +91,7 @@ Products Echarity
                         <p><img id="blah" src="{% static 'img/snap/0noitem.gif' %}"   width="190px" height="150px" alt="No Image of item"/></p>
                 {% endif %}
 <div class="caption">
-<p><u>{{ object.description|truncatewords:15}}</u></p>
+<p><u>{{ object.address|truncatewords:15}}</u></p>
 <p><a href="/products/{{ object.pk }}/" class="btn btn-primary" role="button">View</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="/products/{{ object.pk }}/" class="btn btn-success" role="button">MORE ITEMS</a></p></div>
 		   	 </div>

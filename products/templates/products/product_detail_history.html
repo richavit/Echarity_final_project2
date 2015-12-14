@@ -6,11 +6,11 @@
 <div class="row">
 
 
-    <div class='col-sm-8'>
+    <div class='col-sm-8'><br>
 		<u><h1><lable>Title</lable></h1></u>
          <h2 style="color:brown;">{{ post.title }}</h2>
          
-        <div>
+        <div><br>
 			<u><h1><lable>Image</lable></h1></u>
 			{% if post %}
                         <ul>
@@ -24,10 +24,10 @@
                         <p>No documents.</p>
                 {% endif %}
 			<br>
-              <u><h1>About the Product</h1><br></u>
-              <p class='lead'>{{ post.description }}</p>
-        </div>        
-          
+             
+        </div>  
+        <u><h1><lable>Description</lable></h1></u>      
+          <p class='lead'>{{ post.description }}</p>
 
     </div>
 

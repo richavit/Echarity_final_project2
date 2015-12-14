@@ -143,24 +143,36 @@ background:LightSteelBlue;
 </div>
 <br><hr>
 <div class="container"  style="background-color:LightSteelBlue ">
-    <p><h3><b><u>Latest Requested items</u></b></h3></p><br>
+    <p><h3><b><u>Latest Donated Items</u></b></h3></p><br>
 <div class="row">
 
-		<div class='col-sm-3'>
+		<div class='col-sm-4'>
 			<div class="thumbnail">
-<a href='{{ product.get_absolute_url }}'> <h1>{{ product.title }}</h1></a>
+				
+{% for object in post %}				
+<a href='{{ product.get_absolute_url }}'> <h1>{{ object.title }}</h1></a>
 	
-            {% if product.title %}
+           {% if object %}
+                        <ul>
+                        
+                                
+                                <img src="{{ object.docfile.url }}" alt="{{ object.docfile.name }}">
+                                </a></li>
+                        
+                        </ul>
+                {% else %}
+                        <p><img id="blah" src="{% static 'img/snap/0noitem.gif' %}"   width="190px" height="150px" alt="No Image of item"/></p>
+                {% endif %}
 	
-	<a href='{{ product.get_absolute_url }}'><img class = 'img-responsive'src="{{ img.image.url }}" /></a>
+	
 
 							<!-- <img class='img-responsive' src="{{ MEDIA_URL }}{{ item.image }}" /> -->
 
 
-{% endif %}
-<div class="caption">
-<p><u>{{ product.description|truncatewords:15}}</u></p>
 
+<div class="caption">
+<p><u>{{ object.description|truncatewords:15}}</u></p>
+{% endfor %}
 <a href="{{ product.get_absolute_url }}" class="btn btn-primary" role="button">View</a> &nbsp;&nbsp;&nbsp;&nbsp;
 <a href="{% url 'products' %}" class="btn btn-success" role="button">MORE ITEMS</a></div>
 		   	 </div>

@@ -33,15 +33,20 @@ from .forms import DocumentForm
 #################################################################################
 #Product list view
 
+#def home(request):
+	#sliders = Slider.objects.all()
+	#products = Product.objects.a
+	#template = 'home.html'	
+	#context = {
+		#"products": products,
+		#"sliders": sliders,
+		#}
+	#return render(request, template, context)
+
 def home(request):
-	sliders = Slider.objects.all()
-	products = Product.objects.filter(date_created__lte=timezone.now()).order_by('-productimage')[:8]
-	template = 'home.html'	
-	context = {
-		"products": products,
-		"sliders": sliders,
-		}
-	return render(request, template, context)
+    model = Product 
+    post = Product.objects.all()
+    return render(request, 'home.html', {'post': post})
 
 
 class ProductListView(ListView):
@@ -255,7 +260,7 @@ def list(request):
     if request.method == 'POST':
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
-            newdoc = Product(user = request.user, title = request.POST['title'], docfile = request.FILES['docfile'], active = request.POST['active'], quantity = request.POST['quantity'], zip_Code = request.POST['zip_Code'], address = request.POST['address'], date_created = request.POST['date_created'],date_Update = request.POST['date_Update'], expire_date = request.POST['expire_date'])
+            newdoc = Product(user = request.user, title = request.POST['title'], docfile = request.FILES['docfile'], active = request.POST['active'], description = request.POST['description'], quantity = request.POST['quantity'], zip_Code = request.POST['zip_Code'], address = request.POST['address'], expire_date = request.POST['expire_date'])
             newdoc.save()
 
             # Redirect to the document list after POST
@@ -292,8 +297,8 @@ def post_edit_list(request, pk):
             
             return redirect('products.views.post_detail_list', pk=post.pk)
     else:
-        #form = PostForm(instance=post)
         form = PostForm(instance=post)
+        #form = ImageForm(instance=post)
     return render(request, 'products/post_edit.html', {'form': form})
     
     
