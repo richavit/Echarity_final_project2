@@ -143,11 +143,12 @@ background:LightSteelBlue;
 </div>
 <br><hr>
 <div class="container"  style="background-color:LightSteelBlue ">
-    <p><h3><b><u>Latest Requested items</u></b></h3></p><br>
+    <p><h3><b><u>Latest Donated Items</u></b></h3></p><br>
 <div class="row">
 
-		<div class='col-sm-3'>
+		<div class='col-sm-4'>
 			<div class="thumbnail">
+				
 {% for object in post %}				
 <a href='{{ product.get_absolute_url }}'> <h1>{{ object.title }}</h1></a>
 	
@@ -163,6 +164,12 @@ background:LightSteelBlue;
                         <p><img id="blah" src="{% static 'img/snap/0noitem.gif' %}"   width="190px" height="150px" alt="No Image of item"/></p>
                 {% endif %}
 	
+	
+
+							<!-- <img class='img-responsive' src="{{ MEDIA_URL }}{{ item.image }}" /> -->
+
+
+
 <div class="caption">
 <p><u>{{ object.description|truncatewords:15}}</u></p>
 {% endfor %}
